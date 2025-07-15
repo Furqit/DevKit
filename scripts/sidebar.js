@@ -1,7 +1,6 @@
 class Sidebar {
   constructor() {
     this.sidebar = document.querySelector('.sidebar');
-    this.mobileToggle = document.querySelector('.mobile-toggle');
     this.navItems = document.querySelectorAll('.nav-item');
     this.currentToolId = null;
     
@@ -9,46 +8,13 @@ class Sidebar {
   }
   
   init() {
-    // Mobile sidebar toggle
-    this.mobileToggle.addEventListener('click', () => this.toggleMobileSidebar());
-    
     // Navigation item click handlers
     this.navItems.forEach(item => {
       item.addEventListener('click', () => {
         const toolId = item.dataset.tool;
         this.setActiveTool(toolId);
-        
-        // Close sidebar on mobile after selection
-        if (window.innerWidth <= 640) {
-          this.closeMobileSidebar();
-        }
       });
     });
-    
-    // Handle clicks outside sidebar on mobile to close it
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 640 && 
-          !this.sidebar.contains(e.target) && 
-          !this.mobileToggle.contains(e.target) &&
-          this.sidebar.classList.contains('expanded')) {
-        this.closeMobileSidebar();
-      }
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 640) {
-        this.sidebar.classList.remove('expanded');
-      }
-    });
-  }
-  
-  toggleMobileSidebar() {
-    this.sidebar.classList.toggle('expanded');
-  }
-  
-  closeMobileSidebar() {
-    this.sidebar.classList.remove('expanded');
   }
   
   setActiveTool(toolId) {

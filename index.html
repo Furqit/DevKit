@@ -7,14 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet">
   </head>
   <body>
-    <button class="mobile-toggle" aria-label="Toggle sidebar">
-      <i class="fas fa-bars"></i>
-    </button>
-
     <!-- Sidebar Navigation -->
     <nav class="sidebar">
       <div class="sidebar-nav">
@@ -39,6 +35,8 @@
 
     <!-- Main Content -->
     <main class="main-container">
+      <div class="logo-header">DevKit</div>
+      
       <!-- JSON Tool -->
       <section id="json-tool" class="tool-section">
         <div class="tool-header">
@@ -67,7 +65,7 @@
       <!-- YAML Tool -->
       <section id="yaml-tool" class="tool-section">
         <div class="tool-header">
-          <h2>Yaml Formatter</h2>
+          <h2>YAML Formatter</h2>
           <p>Format and validate your YAML data</p>
         </div>
         <div class="tool-container">
@@ -186,8 +184,7 @@
           </div>
           <div id="base64-error" class="message error-message"></div>
           <div class="input-area">
-            <textarea id="base64-input"
-              placeholder="Paste input here..."></textarea>
+            <textarea id="base64-input" placeholder="Paste input here..."></textarea>
           </div>
           <div class="output-area">
             <textarea id="base64-output" class="monospace" readonly></textarea>
@@ -195,6 +192,21 @@
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 DevKit by 
+          <a href="https://furq.dev" target="_blank" class="author-link">Furq</a>
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/furqit/devkit" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
 
     <!-- Entry point for Vite -->
     <script type="module" src="/main.js"></script>

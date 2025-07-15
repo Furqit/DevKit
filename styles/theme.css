@@ -2,9 +2,11 @@
   --bg-primary: #000000;
   --bg-secondary: #131313;
   --bg-tertiary: #191919;
+  --bg-container: #0a0a0a;
   --text-primary: #e1e1e1;
   --text-secondary: #818181;
   --accent-color: #e1e1e1;
+  --accent-hover: #cccccc;
   --button-bg: #191919;
   --button-hover: #242424;
   --button-active: #2a2a2a;
@@ -14,6 +16,7 @@
   --error: #e15241;
   --transition-speed: 0.15s;
   --button-text-selected: #000000;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -47,6 +50,11 @@ body {
   color: var(--text-secondary);
 }
 
+.tool-container {
+  background-color: var(--bg-container);
+  border: 1px solid var(--border-color);
+}
+
 input, textarea, select {
   background-color: var(--input-bg);
   color: var(--text-primary);
@@ -55,6 +63,8 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(225, 225, 225, 0.2);
 }
 
 .output-area textarea, .output-area pre {
@@ -62,12 +72,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 .action-button {
-  background-color: var(--accent-color);
-  color: var(--button-text-selected);
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 .action-button:hover {
   background-color: var(--button-hover);
+  border-color: var(--accent-color);
 }
 
 .action-button:active {
@@ -77,6 +89,11 @@ input:focus, textarea:focus, select:focus {
 .action-button.primary {
   background-color: var(--accent-color);
   color: var(--button-text-selected);
+  border-color: var(--accent-color);
+}
+
+.action-button.primary:hover {
+  background-color: var(--accent-hover);
 }
 
 .error-message {
@@ -91,23 +108,15 @@ input:focus, textarea:focus, select:focus {
   border-left: 3px solid var(--success);
 }
 
-.mode-toggle button {
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-}
-
-.mode-toggle button.active {
-  background-color: var(--accent-color);
-  color: var(--button-text-selected);
-  border-color: var(--accent-color);
-}
-
-/* UUID Tool Styles */
+/* Toggle and Tab Buttons */
+.mode-toggle button,
 .uuid-tabs .tab-button {
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
+  background-color: var(--button-bg);
 }
 
+.mode-toggle button.active,
 .uuid-tabs .tab-button.active {
   background-color: var(--accent-color);
   color: var(--button-text-selected);
@@ -115,24 +124,39 @@ input:focus, textarea:focus, select:focus {
 }
 
 .options-container {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+}
+
+/* Footer Styles */
+.site-footer {
   background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-}
-
-.select-input, .text-input, .number-input {
-  background-color: var(--input-bg);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
 }
 
-.select-input:focus, .text-input:focus, .number-input:focus {
-  border-color: var(--accent-color);
-}
-
-#uuid-result, #uuid-validate-input {
+.footer-bottom {
   background-color: var(--bg-tertiary);
 }
 
-.mobile-toggle {
-  color: var(--text-primary);
+.author-link {
+  color: var(--accent-color);
+}
+
+.author-link:hover {
+  color: var(--accent-hover);
+}
+
+.social-links a {
+  color: var(--text-secondary);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+.CodeMirror {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color);
 }
