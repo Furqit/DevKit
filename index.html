@@ -26,6 +26,10 @@
           <i class="fas fa-code nav-icon"></i>
           <span class="nav-label">YAML</span>
         </a>
+        <a class="nav-item" data-tool="uuid-tool">
+          <i class="fas fa-key nav-icon"></i>
+          <span class="nav-label">UUID</span>
+        </a>
         <a class="nav-item" data-tool="base64-tool">
           <i class="fas fa-exchange-alt nav-icon"></i>
           <span class="nav-label">Base64</span>
@@ -80,6 +84,90 @@
             </div>
             <div class="editor-container">
               <div id="yaml-output-editor"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- UUID Tool -->
+      <section id="uuid-tool" class="tool-section">
+        <div class="tool-header">
+          <h2>UUID Generator</h2>
+          <p>Generate and validate UUIDs</p>
+        </div>
+        <div class="tool-container">
+          <div class="uuid-tabs">
+            <button id="generate-tab" class="tab-button active">Generate</button>
+            <button id="validate-tab" class="tab-button">Validate</button>
+          </div>
+
+          <!-- Generate Tab Content -->
+          <div id="generate-content" class="tab-content active">
+            <div class="options-container">
+              <div class="option-group">
+                <label for="uuid-version">UUID Version:</label>
+                <select id="uuid-version" class="select-input">
+                  <option value="v4">v4 (Random)</option>
+                  <option value="v1">v1 (Timestamp)</option>
+                  <option value="v3">v3 (MD5 Namespace)</option>
+                  <option value="v5">v5 (SHA-1 Namespace)</option>
+                </select>
+              </div>
+              
+              <div id="namespace-options" class="option-group hidden">
+                <label for="uuid-namespace">Namespace:</label>
+                <select id="uuid-namespace" class="select-input">
+                  <option value="dns">DNS</option>
+                  <option value="url">URL</option>
+                  <option value="oid">OID</option>
+                  <option value="x500">X500</option>
+                  <option value="custom">Custom UUID</option>
+                </select>
+                <div id="custom-namespace-container" class="hidden">
+                  <label for="custom-namespace">Custom Namespace UUID:</label>
+                  <input type="text" id="custom-namespace" class="text-input" placeholder="Enter valid UUID...">
+                </div>
+              </div>
+              
+              <div id="name-input-container" class="option-group hidden">
+                <label for="uuid-name">Name:</label>
+                <input type="text" id="uuid-name" class="text-input" placeholder="Enter name...">
+              </div>
+              
+              <div class="option-group">
+                <label for="uuid-count">Number of UUIDs:</label>
+                <input type="number" id="uuid-count" class="number-input" min="1" max="100" value="1">
+              </div>
+              
+              <div class="option-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="uppercase-uuid">
+                  Uppercase
+                </label>
+              </div>
+            </div>
+            
+            <div class="button-group">
+              <button id="generate-uuid" class="action-button primary">Generate UUID</button>
+              <button id="copy-uuid" class="action-button">Copy to Clipboard</button>
+              <button id="download-uuid" class="action-button">Download .txt</button>
+            </div>
+            
+            <div id="uuid-error" class="message error-message"></div>
+            <div id="uuid-success" class="message success-message"></div>
+            
+            <div class="uuid-result-container">
+              <textarea id="uuid-result" class="monospace" readonly></textarea>
+            </div>
+          </div>
+          
+          <!-- Validate Tab Content -->
+          <div id="validate-content" class="tab-content">
+            <div class="validate-container">
+              <textarea id="uuid-validate-input" class="monospace" placeholder="Paste UUID to validate..."></textarea>
+              <div id="validate-error" class="message error-message"></div>
+              <div id="validate-result" class="message success-message"></div>
+              <button id="validate-uuid" class="action-button primary">Validate UUID</button>
             </div>
           </div>
         </div>

@@ -47,13 +47,13 @@ body {
   color: var(--text-secondary);
 }
 
-input, textarea {
+input, textarea, select {
   background-color: var(--input-bg);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--accent-color);
 }
 
@@ -72,6 +72,11 @@ input:focus, textarea:focus {
 
 .action-button:active {
   background-color: var(--button-active);
+}
+
+.action-button.primary {
+  background-color: var(--accent-color);
+  color: var(--button-text-selected);
 }
 
 .error-message {
@@ -95,6 +100,37 @@ input:focus, textarea:focus {
   background-color: var(--accent-color);
   color: var(--button-text-selected);
   border-color: var(--accent-color);
+}
+
+/* UUID Tool Styles */
+.uuid-tabs .tab-button {
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.uuid-tabs .tab-button.active {
+  background-color: var(--accent-color);
+  color: var(--button-text-selected);
+  border-color: var(--accent-color);
+}
+
+.options-container {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.select-input, .text-input, .number-input {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.select-input:focus, .text-input:focus, .number-input:focus {
+  border-color: var(--accent-color);
+}
+
+#uuid-result, #uuid-validate-input {
+  background-color: var(--bg-tertiary);
 }
 
 .mobile-toggle {

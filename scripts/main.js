@@ -2,11 +2,13 @@ import SidebarManager from './sidebar.js';
 import JsonTool from './tool-json.js';
 import YamlTool from './tool-yaml.js';
 import Base64Tool from './tool-base64.js';
+import UuidTool from './tool-uuid.js';
 
 const TOOLS_MAP = {
   'json-tool': JsonTool,
   'yaml-tool': YamlTool,
-  'base64-tool': Base64Tool
+  'base64-tool': Base64Tool,
+  'uuid-tool': UuidTool
 };
 
 class DevKitApp {

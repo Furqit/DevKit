@@ -28,4 +28,5 @@ import './scripts/sidebar.js';
 import './scripts/tool-json.js';
 import './scripts/tool-yaml.js';
 import './scripts/tool-base64.js';
+import './scripts/tool-uuid.js';
 import './scripts/main.js'; 
