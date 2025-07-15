@@ -1,0 +1,102 @@
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #131313;
+  --bg-tertiary: #191919;
+  --text-primary: #e1e1e1;
+  --text-secondary: #818181;
+  --accent-color: #e1e1e1;
+  --button-bg: #191919;
+  --button-hover: #242424;
+  --button-active: #2a2a2a;
+  --border-color: rgba(255, 255, 255, .05);
+  --input-bg: #191919;
+  --success: #37aa42;
+  --error: #e15241;
+  --transition-speed: 0.15s;
+  --button-text-selected: #000000;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.sidebar {
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+}
+
+.nav-item {
+  color: var(--text-secondary);
+}
+
+.nav-item:hover {
+  background-color: var(--button-hover);
+}
+
+.nav-item.active {
+  background-color: var(--button-active);
+  color: var(--accent-color);
+}
+
+.tool-header h2 {
+  color: var(--accent-color);
+}
+
+.tool-header p {
+  color: var(--text-secondary);
+}
+
+input, textarea {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.output-area textarea, .output-area pre {
+  background-color: var(--bg-tertiary);
+}
+
+.action-button {
+  background-color: var(--accent-color);
+  color: var(--button-text-selected);
+}
+
+.action-button:hover {
+  background-color: var(--button-hover);
+}
+
+.action-button:active {
+  background-color: var(--button-active);
+}
+
+.error-message {
+  color: var(--error);
+  background-color: rgba(225, 82, 65, 0.1);
+  border-left: 3px solid var(--error);
+}
+
+.success-message {
+  color: var(--success);
+  background-color: rgba(55, 170, 66, 0.1);
+  border-left: 3px solid var(--success);
+}
+
+.mode-toggle button {
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.mode-toggle button.active {
+  background-color: var(--accent-color);
+  color: var(--button-text-selected);
+  border-color: var(--accent-color);
+}
+
+.mobile-toggle {
+  color: var(--text-primary);
+}

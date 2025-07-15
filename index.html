@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevKit - Developer Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <button class="mobile-toggle" aria-label="Toggle sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-nav">
+        <a class="nav-item" data-tool="json-tool">
+          <i class="fas fa-code nav-icon"></i>
+          <span class="nav-label">JSON</span>
+        </a>
+        <a class="nav-item" data-tool="yaml-tool">
+          <i class="fas fa-code nav-icon"></i>
+          <span class="nav-label">YAML</span>
+        </a>
+        <a class="nav-item" data-tool="base64-tool">
+          <i class="fas fa-exchange-alt nav-icon"></i>
+          <span class="nav-label">Base64</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+      <!-- JSON Tool -->
+      <section id="json-tool" class="tool-section">
+        <div class="tool-header">
+          <h2>JSON Formatter</h2>
+          <p>Format and validate your JSON data</p>
+        </div>
+        <div class="tool-container">
+          <div class="button-group">
+            <button id="format-json" class="action-button">Format</button>
+            <button id="stringify-json" class="action-button">Stringify</button>
+            <button id="minify-json" class="action-button">Minify</button>
+          </div>
+          <div id="json-error" class="message error-message"></div>
+          <div id="json-success" class="message success-message"></div>
+          <div class="json-editors-container">
+            <div class="editor-container">
+              <div id="json-input-editor"></div>
+            </div>
+            <div class="editor-container">
+              <div id="json-output-editor"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- YAML Tool -->
+      <section id="yaml-tool" class="tool-section">
+        <div class="tool-header">
+          <h2>Yaml Formatter</h2>
+          <p>Format and validate your YAML data</p>
+        </div>
+        <div class="tool-container">
+          <div class="button-group">
+            <button id="format-yaml" class="action-button">Format</button>
+            <button id="minify-yaml" class="action-button">Minify</button>
+            <button id="to-json-yaml" class="action-button">To JSON</button>
+          </div>
+          <div id="yaml-error" class="message error-message"></div>
+          <div id="yaml-success" class="message success-message"></div>
+          <div class="yaml-editors-container">
+            <div class="editor-container">
+              <div id="yaml-input-editor"></div>
+            </div>
+            <div class="editor-container">
+              <div id="yaml-output-editor"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Base64 Tool -->
+      <section id="base64-tool" class="tool-section">
+        <div class="tool-header">
+          <h2>Base64 Encoder/Decoder</h2>
+          <p>Convert text to and from Base64 encoding</p>
+        </div>
+        <div class="tool-container">
+          <div class="mode-toggle">
+            <button id="encode-button" class="active">Encode</button>
+            <button id="decode-button">Decode</button>
+          </div>
+          <div id="base64-error" class="message error-message"></div>
+          <div class="input-area">
+            <textarea id="base64-input"
+              placeholder="Paste input here..."></textarea>
+          </div>
+          <div class="output-area">
+            <textarea id="base64-output" class="monospace" readonly></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Entry point for Vite -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

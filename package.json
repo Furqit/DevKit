@@ -1,0 +1,23 @@
+{
+  "name": "devkit",
+  "version": "1.0.0",
+  "description": "Developer Toolkit",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "http-server -c-1 dist"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "codemirror": "^5.65.2",
+    "js-yaml": "^4.1.0",
+    "jsonrepair": "^3.13.0"
+  }
+}
