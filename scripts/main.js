@@ -29,7 +29,6 @@ class DevKitApp {
     
     this.sidebar.activateInitialTool();
     
-    // Handle browser back/forward navigation
     window.addEventListener('popstate', () => {
       const toolId = this.sidebar.getInitialToolId();
       this.sidebar.setActiveTool(toolId);
@@ -37,19 +36,16 @@ class DevKitApp {
   }
   
   activateTool(toolId) {
-    // Hide all tool sections
     const toolSections = document.querySelectorAll('.tool-section');
     toolSections.forEach(section => {
       section.classList.remove('active');
     });
     
-    // Show the selected tool section
     const toolSection = document.getElementById(toolId);
     if (toolSection) {
       toolSection.classList.add('active');
     }
     
-    // Initialize tool if not already done
     if (!this.toolInstances[toolId] && TOOLS_MAP[toolId]) {
       this.toolInstances[toolId] = new TOOLS_MAP[toolId]();
     }
@@ -58,4 +54,4 @@ class DevKitApp {
   }
 }
 
-const devKitApp = new DevKitApp(); 
+const devKitApp = new DevKitApp();

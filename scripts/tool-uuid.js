@@ -74,10 +74,8 @@ class UuidTool {
   handleVersionChange() {
     const version = this.versionSelect.value;
     
-    // Reset error and success messages
     this.clearMessages();
     
-    // Show/hide namespace and name options based on version
     if (version === 'v3' || version === 'v5') {
       this.namespaceOptions.classList.remove('hidden');
       this.nameInputContainer.classList.remove('hidden');
@@ -91,7 +89,6 @@ class UuidTool {
   handleNamespaceChange() {
     const namespaceType = this.namespaceSelect.value;
     
-    // Show/hide custom namespace input
     if (namespaceType === 'custom') {
       this.customNamespaceContainer.classList.remove('hidden');
     } else {
@@ -100,21 +97,18 @@ class UuidTool {
   }
   
   generateUuid() {
-    // Clear previous messages
     this.clearMessages();
     
     try {
       const version = this.versionSelect.value;
       const count = parseInt(this.countInput.value, 10);
       
-      // Validate count
       if (isNaN(count) || count < 1 || count > 100) {
         throw new Error('Number of UUIDs must be between 1 and 100');
       }
       
       let uuids = [];
       
-      // Generate UUIDs based on selected version
       for (let i = 0; i < count; i++) {
         let uuid;
         
@@ -135,7 +129,6 @@ class UuidTool {
             throw new Error('Invalid UUID version');
         }
         
-        // Apply uppercase if needed
         if (this.uppercaseCheckbox.checked) {
           uuid = uuid.toUpperCase();
         }
@@ -143,7 +136,6 @@ class UuidTool {
         uuids.push(uuid);
       }
       
-      // Display results
       this.resultArea.value = uuids.join('\n');
       this.showSuccess(`Generated ${count} UUID${count > 1 ? 's' : ''} successfully`);
       
@@ -153,14 +145,12 @@ class UuidTool {
   }
   
   generateNamespaceUuid(uuidFunction) {
-    // Get namespace
     const namespaceType = this.namespaceSelect.value;
     let namespaceUuid;
     
     if (namespaceType === 'custom') {
       namespaceUuid = this.customNamespaceInput.value.trim();
       
-      // Validate custom namespace
       if (!validate(namespaceUuid)) {
         throw new Error('Invalid custom namespace UUID');
       }
@@ -168,13 +158,11 @@ class UuidTool {
       namespaceUuid = this.namespaces[namespaceType];
     }
     
-    // Get name
     const name = this.nameInput.value.trim();
     if (!name) {
       throw new Error('Name is required for v3/v5 UUIDs');
     }
     
-    // Generate UUID
     return uuidFunction(name, namespaceUuid);
   }
   
@@ -203,7 +191,6 @@ class UuidTool {
       return;
     }
     
-    // Create a blob and download link
     const blob = new Blob([text], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -213,7 +200,6 @@ class UuidTool {
     document.body.appendChild(a);
     a.click();
     
-    // Clean up
     setTimeout(() => {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
@@ -223,7 +209,6 @@ class UuidTool {
   }
   
   validateUuid() {
-    // Clear previous messages
     this.validateError.classList.remove('visible');
     this.validateResult.classList.remove('visible');
     

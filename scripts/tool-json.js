@@ -93,7 +93,6 @@ class JsonTool {
     }
   }
 
-
   minifyJson() {
     const inputText = this.inputEditor.getValue().trim();
     this.clearMessages();
